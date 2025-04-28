@@ -1,0 +1,225 @@
+
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+  color: #0b283a;
+}
+
+/* Dark Mode */
+.dark {
+  background-color: #0b283a;
+  background-image: var("./assets/bg.jpg");
+  color: #ffffff;
+}
+
+/* Common Styles */
+.portfolio {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.theme-toggle-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  margin-left: 30px;
+}
+
+.main {
+  text-align: center;
+}
+
+.buttons .btn {
+  padding: 0.75rem 2rem;
+  border: 2px solid #5299c6; /* Primary blue color border */
+  border-radius: 30px; /* Smooth round shape */
+  background: linear-gradient(135deg, #5299c6, #0b283a); /* Stylish gradient background */
+  color: #ffffff; /* White text color */
+  font-size: 15px; /* Font size for better readability */
+  font-weight: 600; /* Slightly bold font */
+  letter-spacing: 1px; /* Spaced-out text for better aesthetics */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth hover animation */
+  display: inline-flex; /* Flex display for alignment */
+  align-items: center; /* Align icon and text */
+  justify-content: center; /* Center the content */
+  gap: 0.5rem; /* Space between text and icon */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  margin-right: 1rem; /* Add spacing between buttons */
+}
+
+.buttons .btn:last-child {
+  margin-right: 0; /* Ensure the last button has no extra margin */
+}
+
+.buttons .btn:hover {
+  background: linear-gradient(135deg, #0b283a, #5299c6); /* Reverse gradient on hover */
+  color: #ffffff; /* Keep text white */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.buttons .btn:active {
+  transform: scale(0.98); /* Shrink button slightly on click */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Dim shadow on click */
+}
+
+.buttons .btn.secondary {
+  border: 2px solid #0b283a; /* Dark blue border for secondary button */
+  background: transparent; /* No background by default */
+  color: #0b283a; /* Dark blue text */
+}
+
+.buttons .btn.secondary:hover {
+
+  color: #ffffff; /* White text on hover */
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+
+.footer {
+  margin-top: 2rem;
+}
+
+.social-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* Add this to create the wave effect on the right side */
+.home-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  position: relative; /* Required to position the wave absolutely */
+}
+
+.home-layout::after {
+  content: '';
+  position: absolute;
+  right: 0; /* Place the wave on the right side */
+  top: 0;
+  width: 100%;
+  height: 200px; /* Adjust the wave height */
+  background: #0b283a; 
+  border-radius: 50% 50% 0 0; /* Creates the wave shape */
+  z-index: -1; /* Make sure it stays behind the content */
+}
+
+/* Optional: Add a smooth transition for the wave on hover */
+.home-layout:hover::after {
+  background: #5299c6; /* Change wave color on hover */
+}
+
+
+
+.text-container {
+  flex: 1; /* Text takes up half the space */
+  text-align: left; /* Align text to the left */
+  margin-left: 50px;
+}
+
+.image-container {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5299c6;
+}
+
+.image-container .avatar {
+  max-width: 300px; 
+  height: 300px;
+  border-radius: 50%; 
+  box-shadow: 10px 10px 10px 10px rgba(36, 174, 103, 0.2); 
+}
+
+
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0); 
+  }
+  60% {
+    transform: scale(1.2); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
+
+/* Hover effect: slight zoom-in */
+.image-container .avatar:hover {
+  transform: scale(1.1); /* Zoom-in effect on hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+.image-container .avatar:hover {
+  transform: scale(1.1) rotate(5deg); /* Adds slight rotation */
+}
+.image-container .avatar {
+  opacity: 0; /* Start as invisible */
+  animation: fadeIn 1.5s ease-out forwards; /* Fade-in effect */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .home-layout {
+    flex-direction: column; /* Stack text and image on smaller screens */
+    text-align: center;
+  }
+
+  .text-container {
+    text-align: center; /* Center text for smaller screens */
+    margin-left: 0; /* Remove margin for smaller screens */
+    margin-right: 0; /* Ensure no side margins */
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    margin-right: 0; /* Remove right margin on smaller screens */
+    justify-content: center; /* Keep image centered */
+  }
+  .image-container .avatar {
+    width: 200px; /* Adjust the image size for smaller screens */
+    height: 200px;
+    margin-right: 0; /* Ensure no margin on smaller screens */
+  }
+ 
+}
+
+
+@media (max-width: 768px) {
+
+  .app{
+    /* display: none; */
+  }
+}
